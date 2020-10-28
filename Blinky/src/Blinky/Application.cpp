@@ -11,6 +11,6 @@ namespace Blinky {
 
 	void Application::Run()
 	{
-		while (true);
+		//while (true);
 	}
 }

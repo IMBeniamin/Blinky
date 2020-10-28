@@ -1,0 +1,3 @@
+[submodule "Blinky/vendor/spdlog"]
+	path = Blinky/vendor/spdlog
+	url = https://github.com/gabime/spdlog

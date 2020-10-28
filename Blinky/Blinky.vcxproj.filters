@@ -27,9 +27,15 @@
     <ClInclude Include="src\Blinky\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Blinky\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Blinky\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Blinky\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

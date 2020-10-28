@@ -2,6 +2,6 @@
 .vs/
 bin/
 bin-int/
-
+Blinky/vendor/
 # Files
 *.user

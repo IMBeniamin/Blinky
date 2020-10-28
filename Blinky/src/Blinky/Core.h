@@ -7,5 +7,5 @@
         #define BLINKY_API __declspec(dllimport)
     #endif
 #else
-    #error Only windows is supported as of right now
+    #error Only windows is supported
 #endif
