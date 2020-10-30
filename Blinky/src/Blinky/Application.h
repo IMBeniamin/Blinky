@@ -1,5 +1,7 @@
 #pragma once
+
 #include "Core.h"
+#include "Blinky/Events/Event.h"
 
 namespace Blinky {
 	class BLINKY_API Application
