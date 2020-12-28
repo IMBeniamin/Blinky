@@ -7,3 +7,6 @@
 [submodule "Blinky/vendor/imgui"]
 	path = Blinky/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Blinky/vendor/glm"]
+	path = Blinky/vendor/glm
+	url = https://github.com/g-truc/glm
