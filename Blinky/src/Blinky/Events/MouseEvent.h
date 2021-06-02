@@ -2,7 +2,6 @@
 
 #include "Blinky/Events/Event.h"
 
-#include <sstream>
 
 namespace Blinky {
 

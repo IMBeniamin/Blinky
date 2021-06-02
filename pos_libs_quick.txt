@@ -1,0 +1,2 @@
+https://github.com/liballeg/allegro5
+https://www.sfml-dev.org/

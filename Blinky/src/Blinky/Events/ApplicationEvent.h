@@ -3,8 +3,6 @@
 #include "Blinky/Core.h"
 #include "Blinky/Events/Event.h"
 
-#include <sstream>
-
 namespace Blinky {
 	class BLINKY_API WindowEvent : public Event
 	{
