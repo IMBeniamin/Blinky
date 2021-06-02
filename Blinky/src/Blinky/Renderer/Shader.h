@@ -6,14 +6,16 @@ namespace Hazel {
 
 	class Shader
 	{
+	protected:
+		Shader(std::string& src) { this->m_Src = src; };
 	public:
-		Shader(const std::string& vertexSrc, const std::string& fragmentSrc);
+		
 		virtual ~Shader() = 0;
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 	private:
-		uint32_t m_RendererID;
+		std::string m_Src;
 	};
 
 }
