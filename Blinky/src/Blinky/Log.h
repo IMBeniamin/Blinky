@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Core.h"
+#include "Blinky/Base.h"
+
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
 
@@ -24,7 +26,7 @@ namespace Blinky {
 #define BL_CORE_INFO(...)  ::Blinky::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define BL_CORE_WARN(...)  ::Blinky::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define BL_CORE_ERROR(...) ::Blinky::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define BL_CORE_FATAL(...) ::Blinky::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define BL_CORE_FATAL(...) ::Blinky::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client log macros
 
@@ -32,4 +34,4 @@ namespace Blinky {
 #define BL_INFO(...)       ::Blinky::Log::GetClientLogger()->info(__VA_ARGS__)
 #define BL_WARN(...)       ::Blinky::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define BL_ERROR(...)      ::Blinky::Log::GetClientLogger()->error(__VA_ARGS__)
-#define BL_FATAL(...)      ::Blinky::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define BL_FATAL(...)      ::Blinky::Log::GetClientLogger()->critical(__VA_ARGS__)
