@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace Hazel {
+namespace Blinky {
 
 	class Shader
 	{

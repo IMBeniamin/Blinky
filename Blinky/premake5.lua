@@ -1,4 +1,4 @@
-project "Hazel"
+project "Blinky"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
