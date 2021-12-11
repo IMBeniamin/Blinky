@@ -25,8 +25,9 @@ subprocess.call(["git", "submodule", "update", "--init", "--recursive"])
 if (premakeInstalled):
     if platform.system() == "Windows":
         print("\nRunning premake...")
-        subprocess.call([os.path.abspath(f"./scripts/{userPlatform}/genProjects.bat"), "nopause"])
+        subprocess.call(
+            [os.path.abspath(f"./scripts/{userPlatform}/genProjects.bat"), "nopause"])
 
     print("\nSetup completed!")
 else:
-    print("Hazel requires Premake to generate project files.")
+    print("Bilnky requires Premake to generate project files.")

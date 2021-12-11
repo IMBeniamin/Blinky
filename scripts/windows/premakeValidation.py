@@ -16,7 +16,8 @@ class PremakeConfiguration:
             print("Premake is not installed.")
             return False
 
-        print(f"Correct Premake located at {os.path.abspath(cls.premakeDirectory)}")
+        print(
+            f"Correct Premake located at {os.path.abspath(cls.premakeDirectory)}")
         return True
 
     @classmethod
@@ -31,21 +32,26 @@ class PremakeConfiguration:
     def InstallPremake(cls):
         permissionGranted = False
         while not permissionGranted:
-            reply = str(input("Premake not found. Would you like to download Premake {0:s}? [Y/N]: ".format(cls.premakeVersion))).lower().strip()[:1]
+            reply = str(input("Premake not found. Would you like to download Premake {0:s}? [Y/N]: ".format(
+                cls.premakeVersion))).lower().strip()[:1]
             if reply == 'n':
                 return False
             permissionGranted = (reply == 'y')
 
         premakePath = f"{cls.premakeDirectory}/premake-{cls.premakeVersion}-windows.zip"
-        print("Downloading {0:s} to {1:s}".format(cls.premakeZipUrls, premakePath))
+        print("Downloading {0:s} to {1:s}".format(
+            cls.premakeZipUrls, premakePath))
         utils.download_file(cls.premakeZipUrls, premakePath)
         print("Extracting", premakePath)
         utils.unzip_file(premakePath, delete_zip=True)
-        print(f"Premake {cls.premakeVersion} has been downloaded to '{cls.premakeDirectory}'")
+        print(
+            f"Premake {cls.premakeVersion} has been downloaded to '{cls.premakeDirectory}'")
 
         premakeLicensePath = f"{cls.premakeDirectory}/LICENSE.txt"
-        print("Downloading {0:s} to {1:s}".format(cls.premakeLicenseUrl, premakeLicensePath))
+        print("Downloading {0:s} to {1:s}".format(
+            cls.premakeLicenseUrl, premakeLicensePath))
         utils.download_file(cls.premakeLicenseUrl, premakeLicensePath)
-        print(f"Premake License file has been downloaded to '{cls.premakeDirectory}'")
+        print(
+            f"Premake License file has been downloaded to '{cls.premakeDirectory}'")
 
         return True
