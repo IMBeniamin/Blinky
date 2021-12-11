@@ -1,7 +1,18 @@
-# Directories
-.vs/
-bin/
+#Binaries
+**/bin/
 bin-int/
+
+#Blinky logs
+*.log
+
+#Visual studioo files/folders
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
+
+# Directories
 Blinky/vendor/
-# Files
-*.user
+cache/
+__pycache__/
