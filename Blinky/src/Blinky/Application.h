@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core.h"
+#include "Blinky/Core/Base.h"
 
 #include "Window.h"
 #include "Blinky/LayerStack.h"

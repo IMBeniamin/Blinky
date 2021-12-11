@@ -1,5 +1,5 @@
 #pragma once
-#include "Blinky/Core.h"
+#include "Blinky/Core/Base.h"
 
 namespace Blinky 
 {

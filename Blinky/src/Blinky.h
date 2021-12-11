@@ -4,7 +4,7 @@
 
 #include "Blinky/Application.h"
 #include "Blinky/Layer.h"
-#include "Blinky/Log.h"
+#include "Blinky/Core/Log.h"
 
 #include "Blinky/Input.h"
 #include "Blinky/KeyCodes.h"

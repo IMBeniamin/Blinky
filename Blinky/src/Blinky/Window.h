@@ -1,7 +1,7 @@
 #pragma once
 #include "blpch.h"
 
-#include "Blinky/Core.h"
+#include "Blinky/Core/Base.h"
 #include "Blinky/Events/Event.h"
 
 namespace Blinky

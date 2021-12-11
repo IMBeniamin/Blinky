@@ -12,7 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Blinky/Log.h"
+#include "Blinky/Core/Log.h"
 
 #ifdef BL_PLATFORM_WINDOWS
 	#include "Windows.h"
