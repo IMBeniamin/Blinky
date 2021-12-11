@@ -13,6 +13,5 @@ bin-int/
 **.vcxproj.user
 
 # Directories
-Blinky/vendor/
 cache/
 __pycache__/
