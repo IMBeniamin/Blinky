@@ -29,7 +29,6 @@ group "Dependencies"
 	include "Blinky/vendor/GLFW"
 	include "Blinky/vendor/Glad"
 	include "Blinky/vendor/imgui"
-	include "Blinky/vendor/spdlog"
 group ""
 
 include "Blinky"
