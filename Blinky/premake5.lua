@@ -47,7 +47,7 @@ project "Blinky"
 
 		defines
 		{
-
+			"BL_PLATFORM_WINDOWS"
 		}
 
 	filter "configurations:Debug"
@@ -57,7 +57,7 @@ project "Blinky"
 
 		links
 		{
-			
+
 		}
 
 	filter "configurations:Release"
@@ -67,7 +67,7 @@ project "Blinky"
 
 		links
 		{
-			
+
 		}
 
 	filter "configurations:Dist"
@@ -77,5 +77,5 @@ project "Blinky"
 
 		links
 		{
-			
+
 		}
