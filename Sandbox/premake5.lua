@@ -28,15 +28,19 @@ project "Sandbox"
 
 	filter "system:windows"
 		systemversion "latest"
+		defines
+		{
+			"BL_PLATFORM_WINDOWS"
+		}
 
 	filter "configurations:Debug"
 		defines "BL_DEBUG"
 		runtime "Debug"
 		symbols "on"
-		
+
 		postbuildcommands
 		{
-			
+
 		}
 
 	filter "configurations:Release"
