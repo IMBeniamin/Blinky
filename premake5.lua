@@ -1,151 +1,36 @@
-workspace "Blinky"
-    architecture "x64"
-    startproject "Sandbox"
+include "./vendor/premake/premake_customization/solution_items.lua"
+include "Dependencies.lua"
 
-    configurations
-    {
-        "Debug",
-        "Release",
-        "Dist"
-    }
+workspace "Blinky"
+	architecture "x86_64"
+	startproject "Sandbox"
+
+	configurations
+	{
+		"Debug",
+		"Release",
+		"Dist"
+	}
+
+	solution_items
+	{
+		".editorconfig"
+	}
+
+	flags
+	{
+		"MultiProcessorCompile"
+	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Include directories realtive to root folder (solution directory)
-IncludeDir = {}
-IncludeDir["GLFW"] = "Blinky/vendor/GLFW/include"
-IncludeDir["Glad"] = "Blinky/vendor/Glad/include"
-IncludeDir["ImGui"] = "Blinky/vendor/imgui"
-IncludeDir["glm"] = "Blinky/vendor/glm"
+-- group "Dependencies"
+-- 	include "vendor/premake"
+-- 	include "Blinky/vendor/GLFW"
+-- 	include "Blinky/vendor/Glad"
+-- 	include "Blinky/vendor/imgui"
+-- 	include "Blinky/vendor/spdlog"
+-- group ""
 
-include "Blinky/vendor/GLFW"
-include "Blinky/vendor/Glad"
-include "Blinky/vendor/imgui"
-
-project "Blinky"
-    location "Blinky"
-    kind "StaticLib"
-    
-    language "C++"
-    cppdialect "C++17"
-
-    staticruntime "on"
-
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-    
-    pchheader "blpch.h"
-    pchsource "Blinky/src/blpch.cpp"
-
-    files
-    {
-        "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.hpp",
-        "%{prj.name}/src/**.cpp",
-        "%{prj.name}/vendor/glm/glm/**.hpp",
-        "%{prj.name}/vendor/glm/glm/**.inl"
-    }
-
-    defines
-    {
-        "_CRT_SECURE_NO_WARNINGS"
-    }
-
-    includedirs
-    {
-        "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}",
-        "%{IncludeDir.Glad}",
-        "%{IncludeDir.ImGui}",
-        "%{IncludeDir.glm}"
-    }
-    links
-    {
-        "GLFW",
-        "Glad",
-        "ImGui",
-        "opengl32.lib"
-    }
-    
-    filter "system:windows"
-        cppdialect "C++17"
-        systemversion "latest"
-
-        defines
-        {
-            "BL_PLATFORM_WINDOWS",
-            "BL_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
-        }
-    
-    filter "configurations:Debug"
-        defines "BL_DEBUG"
-        runtime "Debug"
-        symbols "on"
-
-    filter "configurations:Release"
-        defines "BL_RELEASE"
-        runtime "Release"
-        optimize "on"
-    
-    filter "configurations:Dist"
-        defines "BL_DIST"
-        runtime "Release"
-        optimize "on"
-
-project "Sandbox"
-    location "Sandbox"
-    kind "ConsoleApp"
-
-    language "C++"
-    cppdialect "C++17"
-
-    staticruntime "on"
-
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-    files
-    {
-        "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.hpp",
-        "%{prj.name}/src/**.cpp"
-    }
-
-    includedirs
-    {
-        "Blinky/vendor/spdlog/include",
-        "Blinky/src",
-        "Blinky/vendor",
-        "%{IncludeDir.glm}"
-    }
-    
-    links
-    {
-        "Blinky"
-    }
-
-    filter "system:windows"
-        
-        systemversion "latest"
-
-        defines
-        {
-            "BL_PLATFORM_WINDOWS",
-        }
-    
-    filter "configurations:Debug"
-        defines "BL_DEBUG"
-        runtime "Debug"
-        symbols "on"
-
-    filter "configurations:Release"
-        defines "BL_RELEASE"
-        runtime "Release"
-        optimize "on"
-    
-    filter "configurations:Dist"
-        defines "BL_DIST"
-        runtime "Release"
-        optimize "on"
+include "Blinky"
+include "Sandbox"

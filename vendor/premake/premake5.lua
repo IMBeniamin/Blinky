@@ -1,6 +1,3 @@
--- TO BE CHANGED
--- see https://github.com/TheCherno/Hazel/tree/master/scripts
-
 project "Premake"
 	kind "Utility"
 
