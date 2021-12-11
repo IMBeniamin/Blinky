@@ -13,11 +13,12 @@ class PremakeConfiguration:
     @classmethod
     def Validate(cls):
         if (not cls.CheckIfPremakeInstalled()):
-            print("Premake is not installed.")
+            utils.cprint("Premake is not installed.", utils.OutputLevel.ERROR)
             return False
 
-        print(
-            f"Correct Premake located at {os.path.abspath(cls.premakeDirectory)}")
+        utils.cprint(
+            f"Correct Premake located at {os.path.abspath(cls.premakeDirectory)}",
+            utils.OutputLevel.SUCCESS)
         return True
 
     @classmethod
@@ -32,26 +33,33 @@ class PremakeConfiguration:
     def InstallPremake(cls):
         permissionGranted = False
         while not permissionGranted:
-            reply = str(input("Premake not found. Would you like to download Premake {0:s}? [Y/N]: ".format(
-                cls.premakeVersion))).lower().strip()[:1]
+            reply = str(input(utils.colorama.Fore.MAGENTA +
+                              "[PROMPT] " +
+                              utils.colorama.Style.RESET_ALL +
+                              utils.colorama.Fore.YELLOW +
+                              "Premake not found. Would you like to download Premake {0:s}? [Y/N]: ".format(
+                                  cls.premakeVersion) +
+                              utils.colorama.Style.RESET_ALL)).lower().strip()[:1]
             if reply == 'n':
                 return False
             permissionGranted = (reply == 'y')
 
         premakePath = f"{cls.premakeDirectory}/premake-{cls.premakeVersion}-windows.zip"
-        print("Downloading {0:s} to {1:s}".format(
-            cls.premakeZipUrls, premakePath))
+        utils.cprint("Downloading {0:s} to {1:s}".format(
+            cls.premakeZipUrls, premakePath), utils.OutputLevel.INFO)
         utils.download_file(cls.premakeZipUrls, premakePath)
-        print("Extracting", premakePath)
+        utils.cprint("Extracting" + premakePath, utils.OutputLevel.INFO)
         utils.unzip_file(premakePath, delete_zip=True)
-        print(
-            f"Premake {cls.premakeVersion} has been downloaded to '{cls.premakeDirectory}'")
+        utils.cprint(
+            f"Premake {cls.premakeVersion} has been downloaded to '{cls.premakeDirectory}'",
+            utils.OutputLevel.SUCCESS)
 
         premakeLicensePath = f"{cls.premakeDirectory}/LICENSE.txt"
-        print("Downloading {0:s} to {1:s}".format(
-            cls.premakeLicenseUrl, premakeLicensePath))
+        utils.cprint("Downloading {0:s} to {1:s}".format(
+            cls.premakeLicenseUrl, premakeLicensePath), utils.OutputLevel.INFO)
         utils.download_file(cls.premakeLicenseUrl, premakeLicensePath)
-        print(
-            f"Premake License file has been downloaded to '{cls.premakeDirectory}'")
+        utils.cprint(
+            f"Premake License file has been downloaded to '{cls.premakeDirectory}'",
+            utils.OutputLevel.SUCCESS)
 
         return True

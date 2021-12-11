@@ -1,8 +1,6 @@
 @echo off
-pushd %~dp0\..\
-set "UserInputPath=vs2022"
-set /P UserInputPath="IDE in use(enter=vs2022): "
-echo you wrote %UserInputPath%
-call vendor\premake\bin\premake5.exe %UserInputPath%
+pushd %~dp0\..\..\
+set "version=vs2019"
+set /P version="IDE to use [default: vs2019]: "
+call vendor\premake\bin\premake5.exe %version%
 popd
-PAUSE
