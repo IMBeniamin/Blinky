@@ -13,6 +13,7 @@ class PremakeConfiguration:
     @classmethod
     def Validate(cls):
         if (not cls.CheckIfPremakeInstalled()):
+            # CheckIfPremakeInstalled automatically tries to download and install premake
             utils.cprint("Premake is not installed.", utils.OutputLevel.ERROR)
             return False
 
