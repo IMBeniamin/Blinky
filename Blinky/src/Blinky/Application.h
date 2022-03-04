@@ -9,6 +9,8 @@
 
 #include "Blinky/ImGui/ImGuiLayer.h"
 
+#include "Blinky/Renderer/Shader.h"
+
 namespace Blinky {
 	class BLINKY_API Application
 	{
@@ -32,6 +34,9 @@ namespace Blinky {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 
 	private:
 		static Application* s_Instance;

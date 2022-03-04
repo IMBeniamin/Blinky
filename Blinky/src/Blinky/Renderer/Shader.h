@@ -6,16 +6,14 @@ namespace Blinky {
 
 	class Shader
 	{
-	protected:
-		Shader(std::string& src) { this->m_Src = src; };
 	public:
-		
-		virtual ~Shader() = 0;
+		Shader(const std::string& vertexSrc, const std::string& fragmentSrc);
+		~Shader();
 
-		virtual void Bind() const = 0;
-		virtual void Unbind() const = 0;
+		void Bind() const;
+		void Unbind() const;
 	private:
-		std::string m_Src;
+		uint32_t m_RendererID;
 	};
 
 }
