@@ -8,7 +8,7 @@ project "Blinky"
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "blpch.h"
-	pchsource "blpch.cpp"
+	pchsource "src/blpch.cpp"
 
 	files
 	{
