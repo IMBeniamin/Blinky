@@ -7,7 +7,7 @@
 
 namespace Blinky
 {
-	VertexBuffer* VertexBuffer::Create(std::unique_ptr<float> vertices, uint32_t size)
+	VertexBuffer* VertexBuffer::Create(float* vertices, uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{
@@ -19,7 +19,7 @@ namespace Blinky
 		return nullptr;
 	}
 
-	IndexBuffer* IndexBuffer::Create(std::unique_ptr<uint32_t> indices, uint32_t size)
+	IndexBuffer* IndexBuffer::Create(uint32_t* indices, uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{
