@@ -1,10 +1,8 @@
 ﻿#pragma once
 
-#pragma once
-
 #include "Blinky/Renderer/Buffer.h"
 
-namespace Hazel {
+namespace Blinky {
 
 	class OpenGLVertexBuffer : public VertexBuffer
 	{
