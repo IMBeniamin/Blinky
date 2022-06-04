@@ -7,10 +7,4 @@ namespace Blinky {
 		: m_DebugName(debugName)
 	{
 	}
-
-	Layer::~Layer()
-	{
-
-	}
-
 }

@@ -11,13 +11,14 @@
 
 #include "Blinky/Renderer/Shader.h"
 #include "Blinky/Renderer/Buffer.h"
+#include "Blinky/Renderer/VertexArray.h"
 
 namespace Blinky {
 	class BLINKY_API Application
 	{
 	public:
 		Application();
-		virtual ~Application();
+		virtual ~Application() = default;
 		void Run();
 		
 		void OnEvent(Event& e);
@@ -36,10 +37,11 @@ namespace Blinky {
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		unsigned int m_VertexArray;
-		std::unique_ptr<Shader> m_Shader;
-		std::unique_ptr<VertexBuffer> m_VertexBuffer;
-		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray> m_VertexArray;
+
+		std::shared_ptr<Shader> m_BlueShader;
+		std::shared_ptr<VertexArray> m_SquareVA;
 
 	private:
 		static Application* s_Instance;
