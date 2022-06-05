@@ -1,6 +1,6 @@
 #include "Blinky.h"
 
-//#include "imgui/imgui.h"
+#include "imgui/imgui.h"
 
 class TestLayer : public Blinky::Layer {
 public:
@@ -13,15 +13,13 @@ public:
 	void OnUpdate() override
 	{
 		//BL_INFO("TestLayer::Update");
-		if (Blinky::Input::IsKeyPressed(BL_KEY_TAB))
-			BL_TRACE("Tab key was pressed!");
 	}
 
 	virtual void OnImGuiRender() override
 	{
-		//ImGui::Begin("Test");
-		//ImGui::Text("Hello World");
-		//ImGui::End();
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 
 	void OnEvent(Blinky::Event& event) override
@@ -41,7 +39,7 @@ public:
 	};
 	~Sandbox()
 	{
-	
+		
 	};
 };
 

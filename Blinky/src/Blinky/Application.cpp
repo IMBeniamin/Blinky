@@ -1,8 +1,8 @@
 #include "blpch.h"
 #include "Application.h"
-#include "Blinky/Events/ApplicationEvent.h"
 
-#include <glad/glad.h>
+#include "Blinky/Events/ApplicationEvent.h"
+#include "Blinky/Renderer/Renderer.h"
 
 #include "Input.h"
 #include "KeyCodes.h"
@@ -121,7 +121,7 @@ namespace Blinky {
 			in vec3 v_Position;
 			void main()
 			{
-				color = vec4(0.2, 0.3, 0.8, 1.0);
+				color = vec4(0.2, 0.2, 0.2, 1.0);
 			}
 		)";
 
@@ -154,21 +154,20 @@ namespace Blinky {
 	void Application::Run()
 	{
 		while (m_Running) {
-			// test, should make window pink
-			
-			glClearColor(0.1f, 0.1f, 0.1f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-			// end of test
+			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
+			RenderCommand::Clear();
 
-			// square state
+			Renderer::BeginScene();
+
+			// square
 			m_BlueShader->Bind();
-			m_SquareVA->Bind();
-			glDrawElements(GL_TRIANGLES, m_SquareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
-			
-			// triangle state
+			Renderer::Submit(m_SquareVA);
+
+			// triangle
 			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_VertexArray);
+
+			Renderer::EndScene();
 
 			// layers updates
 			for (Layer* layer : m_LayerStack)
