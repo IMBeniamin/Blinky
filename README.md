@@ -1,5 +1,4 @@
 # Blinky [![License](https://img.shields.io/github/license/IMBeniamin/Blinky.svg)](https://github.com/IMBeniamin/Blinky/blob/main/LICENSE)
-[![Discord](https://img.shields.io/badge/RxCord%20Server--blue.svg?style=social&logo=Discord)](https://discord.gg/yv4VnZT)
 
 Blinky is a game engine project in its very early stages of development with a focus towards learning.
 There is currently no clear roadmap, however most basic functionality should be implemented to the point where game developing is possible.
